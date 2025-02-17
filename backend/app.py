@@ -7,7 +7,9 @@ CORS(app)  # Enable CORS for frontend interaction
 
 # Re-train Markov model when server starts
 trainMarkovModel()
-
+@app.route('/')
+def home():
+    return "Flask API is working!"
 @app.route('/suggest', methods=['GET'])
 def suggest():
     input_text = request.args.get('input', '').strip().lower()
